@@ -37,23 +37,6 @@
       </a>
     </div>
     <script type='text/javascript'>
-    	function initEmbeddedMessaging() {
-    		try {
-    			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-          embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
-     			embeddedservice_bootstrap.init(
-    				'00DWF000006xSwE',
-    				'TestMIAW',
-    				'https://tripointegroup--mwongdev.sandbox.my.site.com/ESWTestMIAW1745864609304',
-    				{
-    					scrt2URL: 'https://tripointegroup--mwongdev.sandbox.my.salesforce-scrt.com'
-    				}
-    			);
-    		} catch (err) {
-    			console.error('Error loading Embedded Messaging: ', err);
-    		}
-    	};
-
       function showChatButton() {
         document.getElementsByClassName('survey-chat-btn--offline')[0].classList.add('invisible');
         document.getElementsByClassName('survey-chat-btn--online')[0].classList.remove('invisible');
@@ -73,6 +56,22 @@
         console.log("Event detail: ", event.detail);
         hideChatButton();
       });
+      function initEmbeddedMessaging() {
+    		try {
+    			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+          embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+     			embeddedservice_bootstrap.init(
+    				'00DWF000006xSwE',
+    				'TestMIAW',
+    				'https://tripointegroup--mwongdev.sandbox.my.site.com/ESWTestMIAW1745864609304',
+    				{
+    					scrt2URL: 'https://tripointegroup--mwongdev.sandbox.my.salesforce-scrt.com'
+    				}
+    			);
+    		} catch (err) {
+    			console.error('Error loading Embedded Messaging: ', err);
+    		}
+    	};
     </script>
     <script type='text/javascript' src='https://tripointegroup--mwongdev.sandbox.my.site.com/ESWTestMIAW1745864609304/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
