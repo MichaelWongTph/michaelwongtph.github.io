@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <style>
+      .invisible {display: none;}
+    </style>
   </head>
   <body>
     Hello World
@@ -37,6 +40,7 @@
     	function initEmbeddedMessaging() {
     		try {
     			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+          embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
     
     			embeddedservice_bootstrap.init(
     				'00DWF000006xSwE',
@@ -50,6 +54,26 @@
     			console.error('Error loading Embedded Messaging: ', err);
     		}
     	};
+
+      function showChatButton() {
+        document.getElementsByClassName('survey-chat-btn--offline')[0].classList.add('invisible');
+        document.getElementsByClassName('survey-chat-btn--online')[0].classList.remove('invisible');
+      }
+      function hideChatButton() {
+        document.getElementsByClassName('survey-chat-btn--offline')[0].classList.remove('invisible');
+        document.getElementsByClassName('survey-chat-btn--online')[0].classList.add('invisible');
+      }
+
+      window.addEventListener("onEmbeddedMessagingBusinessHoursStarted", (event) => {
+        console.log("Received the onEmbeddedMessagingConversationStarted event…");
+        console.log("Event detail: ", event.detail);
+        showChatButton();
+      });
+      window.addEventListener("onEmbeddedMessagingBusinessHoursEnded", (event) => {
+        console.log("Received the onEmbeddedMessagingConversationStarted event…");
+        console.log("Event detail: ", event.detail);
+        hideChatButton();
+      });
     </script>
     <script type='text/javascript' src='https://tripointegroup--mwongdev.sandbox.my.site.com/ESWTestMIAW1745864609304/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
