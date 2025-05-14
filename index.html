@@ -7,7 +7,7 @@
     </style>
   </head>
   <body>
-    Hello World5
+    MIAW prechat mapping
     <div class="details__modal-info-buttons flex" style="--flex-align-items: flex-end; --flex-direction: column; --flex-display: inline-flex; margin-left: 5px;">
       <a class="button button--small details__modal-info-btn survey-chat-btn" href="tel:480.588.0035" style="--btn-color: #555; --btn-font-size: 14px; --btn-min-height: 50px; --btn-min-width: 168px; padding: 15px 15px 12px; width: 100%;">
         <svg class="details__modal-info-btn-icon details__modal-info-btn-icon--phone" x="0px" y="0px" viewBox="0 0 122.88 122.27" xml:space="preserve" style="height: auto; margin-right: 14px; position: relative; flex-shrink: 0; width: 20px; z-index: 1;">
@@ -73,6 +73,29 @@
     			console.error('Error loading Embedded Messaging: ', err);
     		}
     	};
+      
+    const communityCRMId = 'a00WF00000GevKvYAJ';
+    const websiteUrl = document.documentURI;
+    const referrerUrl = document.referrer;
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get('utm_source');
+    const utmMedium = urlParams.get('utm_medium');
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        console.log("onEmbeddedMessagingReady event triggered");
+      
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "CommunityCRMId": communityCRMId,
+            "WebsiteURL": websiteUrl.slice(0, 255),
+            "WebsiteURL2": websiteUrl.slice(255, 510),
+            "WebsiteURL3": websiteUrl.slice(510),
+            "ReferrerURL": referrerUrl.slice(0, 255),
+            "ReferrerURL2": referrerUrl.slice(255, 510),
+            "ReferrerURL3": referrerUrl.slice(510),
+            "utm_source": decodeURIComponent(utmSource),
+            "utm_medium": decodeURIComponent(utmMedium)
+        });
+    });
     </script>
     <script type='text/javascript' src='https://tripointegroup--mwongdev.sandbox.my.site.com/ESWTestMIAW1745864609304/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
