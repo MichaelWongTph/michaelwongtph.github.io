@@ -85,13 +85,13 @@
         console.log("onEmbeddedMessagingReady event triggered");
       
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "CommunityCRMId": communityCRMId,
-            "WebsiteURL": websiteUrl.slice(0, 255),
-            "WebsiteURL2": websiteUrl.slice(255, 510),
-            "WebsiteURL3": websiteUrl.slice(510),
-            "ReferrerURL": referrerUrl.slice(0, 255),
-            "ReferrerURL2": referrerUrl.slice(255, 510),
-            "ReferrerURL3": referrerUrl.slice(510),
+            "Community_Id": communityCRMId,
+            "Website_URL": websiteUrl.slice(0, 255),
+            "Website_URL_2": websiteUrl.slice(255, 510),
+            "Website_URL_3": websiteUrl.slice(510),
+            "Referrer_URL": referrerUrl.slice(0, 255),
+            "Referrer_URL_2": referrerUrl.slice(255, 510),
+            "Referrer_URL_3": referrerUrl.slice(510),
             "utm_source": decodeURIComponent(utmSource),
             "utm_medium": decodeURIComponent(utmMedium)
         });
