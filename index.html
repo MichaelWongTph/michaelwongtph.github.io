@@ -7,7 +7,7 @@
     </style>
   </head>
   <body>
-    MIAW prechat mapping
+    MIAW prechat mapping 1
     <div class="details__modal-info-buttons flex" style="--flex-align-items: flex-end; --flex-direction: column; --flex-display: inline-flex; margin-left: 5px;">
       <a class="button button--small details__modal-info-btn survey-chat-btn" href="tel:480.588.0035" style="--btn-color: #555; --btn-font-size: 14px; --btn-min-height: 50px; --btn-min-width: 168px; padding: 15px 15px 12px; width: 100%;">
         <svg class="details__modal-info-btn-icon details__modal-info-btn-icon--phone" x="0px" y="0px" viewBox="0 0 122.88 122.27" xml:space="preserve" style="height: auto; margin-right: 14px; position: relative; flex-shrink: 0; width: 20px; z-index: 1;">
@@ -83,15 +83,36 @@
         
     window.addEventListener("onEmbeddedMessagingReady", e => {
         console.log("onEmbeddedMessagingReady event triggered");
+
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "_firstName": {
+              "value": "",
+              "isEditableByEndUser": true
+            },
+            "_lastName": {
+              "value": "",
+              "isEditableByEndUser": true
+            },
+            "_Phone": {
+              "value": "",
+              "isEditableByEndUser": true
+            },
+            "_Email": {
+              "value": "",
+              "isEditableByEndUser": true
+            }
+        });
       
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "Community_Id": communityCRMId,
-            "Website_URL": websiteUrl.slice(0, 255),
-            "Website_URL_2": websiteUrl.slice(255, 510),
-            "Website_URL_3": websiteUrl.slice(510),
-            "Referrer_URL": referrerUrl.slice(0, 255),
-            "Referrer_URL_2": referrerUrl.slice(255, 510),
-            "Referrer_URL_3": referrerUrl.slice(510),
+            "CommunityId": communityCRMId,
+            "WebsiteURL1": websiteUrl.slice(0, 255),
+            "WebsiteURL2": websiteUrl.slice(255, 510),
+            "WebsiteURL3": websiteUrl.slice(510),
+            "ReferrerURL1": referrerUrl.slice(0, 255),
+            "ReferrerURL2": referrerUrl.slice(255, 510),
+            "ReferrerURL3": referrerUrl.slice(510),
             "utm_source": decodeURIComponent(utmSource),
             "utm_medium": decodeURIComponent(utmMedium)
         });
