@@ -36,10 +36,13 @@
       </a>
     </div>
     <div style="margin-top:100px;">
-      <button onClick="function(){window.dispatchEvent(new Event('onEmbeddedMessagingBusinessHoursStarted'))}">During business hours</button>
-      <button onClick="function(){window.dispatchEvent(new Event('onEmbeddedMessagingBusinessHoursEnded'))}">Outside business hours</button>
+      <button onClick="fireEvent('onEmbeddedMessagingBusinessHoursStarted')">During business hours</button>
+      <button onClick="fireEvent('onEmbeddedMessagingBusinessHoursEnded')">Outside business hours</button>
     </div>
     <script type='text/javascript'>
+      function fireEvent(eventName) {
+        window.dispatchEvent(new Event(eventName));
+      }
       function showChatButton() {
         document.getElementsByClassName('survey-chat-btn--offline')[0].classList.add('invisible');
         document.getElementsByClassName('survey-chat-btn--online')[0].classList.remove('invisible');
