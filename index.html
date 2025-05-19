@@ -86,6 +86,7 @@
     const urlParams = new URLSearchParams(window.location.search);
     const utmSource = urlParams.get('utm_source');
     const utmMedium = urlParams.get('utm_medium');
+    const esdName = 'MIAW - TPH Website';
         
     window.addEventListener("onEmbeddedMessagingReady", e => {
         console.log("onEmbeddedMessagingReady event triggered");
@@ -120,7 +121,8 @@
             "ReferrerURL2": referrerUrl.slice(255, 510),
             "ReferrerURL3": referrerUrl.slice(510),
             "utm_source": decodeURIComponent(utmSource),
-            "utm_medium": decodeURIComponent(utmMedium)
+            "utm_medium": decodeURIComponent(utmMedium),
+            "esdName": esdName
         });
     });
     </script>
