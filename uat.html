@@ -75,11 +75,12 @@
     			console.error('Error loading Embedded Messaging: ', err);
     		}
     	};
-      
+
+    
+    const urlParams = new URLSearchParams(window.location.search);
     const communityCRMId = urlParams.get('communityId') || 'a003Z00000pTvmOQAS';
     const websiteUrl = document.documentURI;
     const referrerUrl = document.referrer;
-    const urlParams = new URLSearchParams(window.location.search);
     const utmSource = urlParams.get('utm_source');
     const utmMedium = urlParams.get('utm_medium');
     const utmCampaign = urlParams.get('utm_campaign');
