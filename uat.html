@@ -35,10 +35,6 @@
         <span class="details__modal-info-btn-text">Live Chat</span>
       </a>
     </div>
-    <div style="margin-top:100px;">
-      <button onClick="fireEvent('onEmbeddedMessagingBusinessHoursStarted')">During business hours</button>
-      <button onClick="fireEvent('onEmbeddedMessagingBusinessHoursEnded')">Outside business hours</button>
-    </div>
     <script type='text/javascript'>
       function fireEvent(eventName) {
         window.dispatchEvent(new Event(eventName));
@@ -80,7 +76,7 @@
     		}
     	};
       
-    const communityCRMId = 'a003Z00000pTvmOQAS';
+    const communityCRMId = urlParams.get('communityId') || 'a003Z00000pTvmOQAS';
     const websiteUrl = document.documentURI;
     const referrerUrl = document.referrer;
     const urlParams = new URLSearchParams(window.location.search);
