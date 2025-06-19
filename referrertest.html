@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <style>
+      .invisible {display: none;}
+    </style>
+  </head>
+  <body>
+    <div style="padding: 50px;"><a id="uatlink" href="/uat.html">UAT LINK WITH REFERRER</a>
+    </div>
+    <div><input id="forminput"><button onclick="updateLinkHref()">change target URL</button></div>
+    <script>function updateLinkHref() {
+  // Get the input element by its ID
+  const inputElement = document.getElementById('forminput');
+
+  // Get the link element by its ID
+  const linkElement = document.getElementById('uatlink');
+
+  // Get the value from the input field
+  const inputValue = inputElement.value;
+
+  // Construct the new href based on the input value
+  // You can customize this to build the URL as needed
+  const newHref = encodeURIComponent(inputValue);
+
+  // Set the href attribute of the link
+  linkElement.href = newHref;
+}</script>
+</body>
+<html>
